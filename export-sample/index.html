@@ -10,21 +10,33 @@
 
   <p id="btn">クリックで Foo2() を実行</p>
 
-  <p id="btn2" onclick="bar2()">クリックで bar2() を実行</p>
+  <p id="btn2" onclick="bar3()">クリックで bar3() を実行</p>
 
 <style>
 </style>
 
 <script type="module" src="main.js"></script>
-<script>
+<script type="module">
   import bar2 from "./bar.js";
 
   // インポートした関数は、この script ブロックでのみ参照可能。
   // グローバルスコープから呼び出すことは出来ない。
   // see: https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules
+  console.log('--------------------- aaaaaa');
   bar2();
 
   function bar3() {
+    console.log('--------------------- aaaaaa2');
+    bar2();
+  }
+</script>
+
+<script type="module" src="bar.js">
+  console.log('--------------------- bbbbbb');
+  bar2();
+
+  function bar4() {
+    console.log('--------------------- bbbbbb2');
     bar2();
   }
 </script>
