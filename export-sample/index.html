@@ -10,12 +10,15 @@
 
   <p id="btn">クリックで Foo2() を実行</p>
 
-  <p id="btn2" onclick="hoge()">クリックで hoge() を実行</p>
+  <p id="btn2" onclick="bar()">クリックで bar() を実行</p>
 
 <style>
 </style>
 
 <script type="module" src="main.js"></script>
+<script type="module">
+  import bar from "bar.js";
+</script>
 
 </body>
 </html>
