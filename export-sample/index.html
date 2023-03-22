@@ -10,7 +10,8 @@
 
   <p id="btn">クリックで Foo2() を実行</p>
 
-  <p id="btn2" onclick="bar3()">クリックで bar3() を実行</p>
+  <!-- モジュールの機能をグローバルスコープから利用することはできない。 -->
+  <p id="bad-btn" onclick="bar2()">悪い例。クリックするとエラー。</p>
 
 <style>
 </style>
@@ -22,23 +23,8 @@
   // インポートした関数は、この script ブロックでのみ参照可能。
   // グローバルスコープから呼び出すことは出来ない。
   // see: https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules
-  console.log('--------------------- aaaaaa');
+  console.log('--- bar2を実行します ---');
   bar2();
-
-  function bar3() {
-    console.log('--------------------- aaaaaa2');
-    bar2();
-  }
-</script>
-
-<script type="module" src="bar.js">
-  console.log('--------------------- bbbbbb');
-  bar2();
-
-  function bar4() {
-    console.log('--------------------- bbbbbb2');
-    bar2();
-  }
 </script>
 
 </body>
