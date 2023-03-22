@@ -16,8 +16,17 @@
 </style>
 
 <script type="module" src="main.js"></script>
-<script type="module">
+<script>
   import bar2 from "./bar.js";
+
+  // インポートした関数は、この script ブロックでのみ参照可能。
+  // グローバルスコープから呼び出すことは出来ない。
+  // see: https://developer.mozilla.org/ja/docs/Web/JavaScript/Guide/Modules
+  bar2();
+
+  function bar3() {
+    bar2();
+  }
 </script>
 
 </body>
